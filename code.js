@@ -32,7 +32,7 @@ function makePivot(array, low, high) {
 }
 
 function swapElements(array, i, j) {
-    const temp = array[i];
+    let temp = array[i];
     array[i] = array[j];
     array[j] = temp;
 }
