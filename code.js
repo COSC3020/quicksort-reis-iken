@@ -21,7 +21,7 @@ function quicksort(array) {
 function makePivot(array, low, high) {
     let pivot = array[high];
     let i = low;
-    for (let j = low; j < high; j++) {
+    for (let j = low + 1; j < high; j++) {
         if (array[j] < pivot) {
             swapElements(array, i, j);
             i++;
