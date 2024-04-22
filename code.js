@@ -27,7 +27,7 @@ function makePivot(array, low, high) {
             i++
         }
     }
-    swapElements(array, i, high);
+    swapElements(array, i + 1, high);
     return i + 1;
 }
 
