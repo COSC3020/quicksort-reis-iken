@@ -20,15 +20,15 @@ function quicksort(array) {
 
 function makePivot(array, low, high) {
     let pivot = array[high];
-    let i = low - 1;
+    let i = low;
     for (let j = low; j < high; j++) {
         if (array[j] < pivot) {
             swapElements(array, i, j);
             i++;
         }
     }
-    swapElements(array, i + 1, high);
-    return i + 1;
+    swapElements(array, i, high);
+    return i;
 }
 
 function swapElements(array, i, j) {
