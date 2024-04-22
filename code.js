@@ -10,6 +10,9 @@ function quicksort(array, low, high) {
         if (pivotIndex + 1 < high) {
             stack.push({ low: pivotIndex + 1, high: high });
         }
+        if (low >= high) {
+            continue;
+        }
     }
 }
 
