@@ -1,38 +1,28 @@
-function quicksort(array) {
+function quicksort(array, low, high) {
     let stack = [];
-    stack.push(0);
-    stack.push(array.length - 1);
+    stack.push({ low: low, high: high });
     while (stack.length > 0) {
-        let high = stack.pop();
-        let low = stack.pop();
+        let { low, high } = stack.pop();
         let pivotIndex = makePivot(array, low, high);
         if (pivotIndex - 1 > low) {
-            stack.push(low);
-            stack.push(pivotIndex - 1);
+            stack.push({ low: low, high: pi - 1 });
         }
         if (pivotIndex + 1 < high) {
-            stack.push(pivotIndex + 1);
-            stack.push(high);
+            stack.push({ low: pi + 1, high: high });
         }
     }
-    return array;
 }
 
 function makePivot(array, low, high) {
     let pivot = array[high];
-    let i = low;
-    for (let j = low + 1; j < high; j++) {
-        if (array[j] < pivot) {
-            swapElements(array, i, j);
+    let i = low - 1;
+    for (let j = low; j <= high - 1; j++) {
+        if (array[j] <= pivot) {
             i++;
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
-    swapElements(array, i, high);
-    return i;
-}
 
-function swapElements(array, i, j) {
-    let temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+    [array[i + 1], array[high]] = [array[high], array[i + 1]];
+    return i + 1;
 }
