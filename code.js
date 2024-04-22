@@ -5,7 +5,7 @@ function quicksort(array) {
     while (stack.length > 0) {
         let high = stack.pop();
         let low = stack.pop();
-        let pivotIndex = makePivot(arr, low, high);
+        let pivotIndex = makePivot(array, low, high);
         if (pivotIndex - 1 > low) {
             stack.push(low);
             stack.push(pivotIndex - 1);
