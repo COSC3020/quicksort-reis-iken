@@ -23,8 +23,8 @@ function makePivot(array, low, high) {
     let i = low - 1;
     for (let j = low; j < high; j++) {
         if (array[j] < pivot) {
+            i++;
             swapElements(array, i, j);
-            i++
         }
     }
     swapElements(array, i + 1, high);
