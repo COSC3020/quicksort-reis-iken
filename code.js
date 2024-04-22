@@ -3,17 +3,17 @@ function quicksort(array, low, high) {
     stack.push({ low: low, high: high });
     while (stack.length > 0) {
         let { low, high } = stack.pop();
-        let pivotIndex = makePivot(array, low, high);
-        if (pivotIndex - 1 > low) {
-            stack.push({ low: low, high: pivotIndex - 1 });
-        }
-        if (pivotIndex + 1 < high) {
-            stack.push({ low: pivotIndex + 1, high: high });
-        }
-        if (low >= high) {
-            continue;
+        if (low < high) {
+            let pivotIndex = makePivot(array, low, high);
+            if (pivotIndex - 1 > low) {
+                stack.push({ low: low, high: pivotIndex - 1 });
+            }
+            if (pivotIndex + 1 < high) {
+                stack.push({ low: pivotIndex + 1, high: high });
+            }
         }
     }
+    return array;
 }
 
 function makePivot(array, low, high) {
