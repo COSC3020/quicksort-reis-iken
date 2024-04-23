@@ -14,3 +14,28 @@ recursive call considers.
 Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
+
+
+**MY ANSWER:**
+
+$T(n) = T(n-1) + n + T(1)$ because T(n-1) represents partitioning the bigger sub-array which has a size of n - 1, the n represents the iterations of the partitioning, and T(1) represents partitioning the smaller partition (this is a constant).
+
+So $T(n) = T(n-1) + n + T(1)$
+
+$T(n-1) = T(n-2) + (n-1) + T(1)$
+
+$T(n-2) = T(n-3) + (n-2) + T(1)$
+
+To generalize:
+
+$T(n) = (1 + 2 + ... + n) + n + T(1)$
+
+We can simplify:
+
+$T(n) = (n(n+1)/2) + n + T(1)$
+
+$T(n) = n^2/2 + n + T(1)$
+
+Obviously we only care about the dominant term, $n^2/2$
+
+Thus, we can conclude that the $\Theta$ bound for the worst-case runtime is $\Theta(n^2)$
