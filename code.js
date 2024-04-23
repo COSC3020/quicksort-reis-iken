@@ -1,15 +1,20 @@
 function quicksort(array) {
     if (array.length <= 1) {
         return array; }
-    let stack = [{ left: 0, right: array.length - 1 }];
+    let stack = [];
+    stack.push(0);
+    stack.push(array.length - 1);
     while (stack.length > 0) {
-        let { left, right } = stack.pop();
+        let left = stack.pop();
+        let right = stack.pop();
         let pivotIndex = createPivot(array, left, right);
         if (pivotIndex - 1 > left) {
-            stack.push({ left: left, right: pivotIndex - 1 });
+            stack.push(left);
+            stack.push(pivotIndex - 1);
         }
         if (pivotIndex + 1 < right) {
-            stack.push({ left: pivotIndex + 1, right: right });
+            stack.push(pivotIndex + 1);
+            stack.push(right);
         }
     }
     return array;
