@@ -4,7 +4,7 @@ function quicksort(array) {
     let stack = [{ left: 0, right: array.length - 1 }];
     while (stack.length > 0) {
         let { left, right } = stack.pop();
-        let pivotIndex = createPivot(array, left, right);
+        let pivotIndex = partition(array, left, right);
         if (pivotIndex - 1 > left) {
             stack.push({ left: left, right: pivotIndex - 1 });
         }
@@ -15,7 +15,7 @@ function quicksort(array) {
     return array;
 }
 
-function createPivot(array, left, right) {
+function partition(array, left, right) {
     let pivot = array[right];
     let i = left - 1;
     for (let j = left; j < right; j++) {
